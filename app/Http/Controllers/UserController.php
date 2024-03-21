@@ -11,7 +11,7 @@ class UserController extends Controller
    public function create(){
     return view('users.register');
    }
-   public function store(Request $request){
+public function store(Request $request){
     $validated = $request->validate([
         'name' => 'required|min:3',
         'email' => 'required|email|unique:users',

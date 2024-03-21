@@ -33,18 +33,13 @@ class ListingController extends Controller
             'email' => ['required','email'],
             'description' => 'required',
             'tags' => 'required',
-            'user_id' => auth()->id()
-
 
         ]);
         if($request->hasFile('logo')){
             $validated['logo']=$request->file('logo')->store('logos','public'); // get path
         }
+        $validated[ 'user_id']=auth()->id();
 Listing::create($validated);
-// $list=Listing::create($validated);
-// Listing::find($list->id)->user_id=auth()->id();
-//    dd(Listing::find($list->id)->user_id);
-
  return redirect('/')->with('message','Listing Created Successfully');
     }
     public function edit(Listing $listing){
@@ -84,6 +79,6 @@ Listing::create($validated);
 
     }
     public function manage(){
-        return view('listings.manage',['listings'=>Listing::all()]);
+        return view('listings.manage',['listings'=>auth()->user()->listings]);
 }
 }
