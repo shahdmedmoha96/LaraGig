@@ -16,17 +16,17 @@
                         @foreach ($listings as $listing)
                             <tr class="border-gray-300">
                                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <a href="{{route('listing.show',$listing->id)}}">
-                                       {{$listing->title}}
+                                    <a href="{{ route('listing.show', $listing->id) }}">
+                                        {{ $listing->title }}
                                     </a>
                                 </td>
                                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <a href="{{route('listing.edit',$listing->id)}}" class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                            class="fa-solid fa-pen-to-square"></i>
+                                    <a href="{{ route('listing.edit', $listing->id) }}"
+                                        class="text-blue-400 px-6 py-2 rounded-xl"><i class="fa-solid fa-pen-to-square"></i>
                                         Edit</a>
                                 </td>
                                 <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <form method="POST" action="{{route('listing.destroy',$listing->id)}}">
+                                    <form method="POST" action="{{ route('listing.destroy', $listing->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="text-red-600">

@@ -57,7 +57,8 @@
                     </span>
                 </li>
                 <li>
-                    <a href="{{route('listing.manage')}}" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage
+                    <a href="{{ route('listing.manage') }}" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                        Manage
                         Listings</a>
                 </li>
                 <li>
@@ -65,7 +66,7 @@
                     <form method="POST" action="{{ route('user.logout') }}">
                         @csrf
                         <button type="submit">
-                          <i class="fa-solid fa-door-closed"></i> Logout
+                            <i class="fa-solid fa-door-closed"></i> Logout
                         </button>
                     </form>
                 </li>
@@ -75,7 +76,8 @@
                         Register</a>
                 </li>
                 <li>
-                    <a href="{{ route('user.Login') }}" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <a href="{{ route('user.Login') }}" class="hover:text-laravel"><i
+                            class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a>
                 </li>
             @endauth
