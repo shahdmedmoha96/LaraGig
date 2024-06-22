@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUsergRequest;
+use App\Http\Requests\AuthenticateRequest;
 
 class UserController extends Controller
 {
@@ -12,13 +14,9 @@ class UserController extends Controller
     {
         return view('users.register');
     }
-    public function store(Request $request)
+    public function store(StoreUsergRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        $validated = $request->validated();
         $validated['password'] == bcrypt($validated['password']);
 
         $user = User::create($validated);
@@ -34,14 +32,12 @@ class UserController extends Controller
     }
     public function login()
     {
+        // dd("gg");
         return view('users.login');
     }
-    public function authenticate(Request $request)
+    public function authenticate(AuthenticateRequest $request)
     {
-        $formFields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => 'required'
-        ]);
+        $formFields = $request->validated();
 
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();

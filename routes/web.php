@@ -31,6 +31,7 @@ Route::get('/listing/create',[ListingController::class,'create'])->name('listing
 Route::post('/listings',[ListingController::class,'store'])->name('listing.store')->middleware('auth');
 
 // show single listings
+
 Route::get('/listing/{listing}',[ListingController::class,'show'])->name('listing.show');
 // filter listings acroding tags
 Route::get('/tag={tag}',[ListingController::class,'index'])->name('tag.show');
