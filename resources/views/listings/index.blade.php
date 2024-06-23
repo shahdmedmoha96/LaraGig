@@ -15,7 +15,7 @@
 
                         <div>
                             <h3 class="text-2xl">
-                                <a href="{{ route('listing.show', $listing->id) }}">{{ $listing->title }}</a>
+                                <a href="{{ route('listings.show', $listing->id) }}">{{ $listing->title }}</a>
                             </h3>
                             <div class="text-xl font-bold mb-4">{{ $listing->company }}</div>
                             @php

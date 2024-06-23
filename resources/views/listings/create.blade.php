@@ -10,7 +10,7 @@
                     <p class="mb-4">Post a gig to find a developer</p>
                 </header>
                 {{--  ""enctype="multipart/form-data"" -> add this attribute for form eixt  input -> file(logo) --}}
-                <form method="POST" action="{{ route('listing.store') }} " enctype="multipart/form-data">
+                <form method="POST" action="{{ route('listings.store') }} " enctype="multipart/form-data">
                     @csrf
                     <div class="mb-6">
                         <label for="company" class="inline-block text-lg mb-2 ">Company Name</label>

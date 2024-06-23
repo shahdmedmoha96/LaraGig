@@ -10,7 +10,7 @@
                     <p class="mb-4">Edit:{{ $listing->title }}</p>
                 </header>
                 ''
-                <form method="POSt" action="{{ route('listing.updata', $listing->id) }} "enctype="multipart/form-data">
+                <form method="POSt" action="{{ route('listing.update', $listing->id) }} "enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="mb-6">
